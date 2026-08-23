@@ -20,4 +20,3 @@ def test_deployment_regression_can_recommend_rollback() -> None:
     assert result["recommendation"] == "application.rollback_deployment"
     assert result["confidence"] >= 0.70
     assert result["verified"] is True
-
