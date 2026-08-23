@@ -1,0 +1,32 @@
+# BEGINNER EDIT FILE
+# This is the agent's job description and safety boundary.
+# Do not add passwords, API URLs, queries, commands, or automation here.
+
+name: application-reliability-starter
+domain: application-reliability
+goal: Investigate repeated HTTP 503 errors and recommend the safest approved next step.
+
+scope:
+  environments: [pre-production, production]
+  signals: [http_503, latency]
+
+ownership:
+  owns: [application error patterns, deployment correlation]
+  delegates: [database engine tuning, network fabric issues]
+
+capabilities:
+  read:
+    - observability.get_application_errors
+    - observability.get_metrics
+    - deployment.get_recent_changes
+    - database.get_query_latency
+  action:
+    - application.scale_workload
+    - application.rollback_deployment
+    - incident.escalate
+
+safety:
+  minimum_confidence_for_action: 0.70
+  maximum_hypotheses: 3
+  maximum_tool_calls: 5
+  requires_human_approval: true

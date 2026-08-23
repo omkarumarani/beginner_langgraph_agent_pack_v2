@@ -1,0 +1,15 @@
+# BEGINNER EDIT FILE
+# These are safety rules that remain true after an alert has fired.
+rules:
+  - id: conflicting_evidence_blocks_change
+    when: "evidence_conflicts"
+    outcome: "incident.escalate"
+    reason: "Do not recommend a change when the evidence supports more than one cause."
+  - id: database_cause_is_delegated
+    when: "database_engine_cause"
+    outcome: "incident.escalate"
+    reason: "Database engine investigation belongs to the database domain."
+  - id: only_catalogue_actions
+    when: "action_not_in_catalogue"
+    outcome: "incident.escalate"
+    reason: "The agent may recommend only pre-approved actions."

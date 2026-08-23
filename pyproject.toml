@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "beginner-langgraph-agent-pack"
+version = "0.1.0"
+description = "Entry-level, safe LangGraph domain agent pack."
+requires-python = ">=3.11"
+dependencies = [
+  "langgraph>=0.2",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

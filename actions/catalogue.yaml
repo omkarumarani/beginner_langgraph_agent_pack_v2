@@ -1,0 +1,15 @@
+# BEGINNER EDIT FILE
+# These are names of actions the agent can REQUEST. The agent never executes them.
+actions:
+  - name: application.scale_workload
+    risk: medium
+    use_when: "Traffic is stable, replicas are healthy, and evidence supports temporary capacity pressure."
+    requires_human_approval: true
+  - name: application.rollback_deployment
+    risk: medium
+    use_when: "Errors begin immediately after a deployment and logs/evidence support a regression."
+    requires_human_approval: true
+  - name: incident.escalate
+    risk: low
+    use_when: "Evidence conflicts, is insufficient, or cause is outside this agent's ownership."
+    requires_human_approval: false

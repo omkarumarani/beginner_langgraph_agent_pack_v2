@@ -1,0 +1,33 @@
+# BEGINNER EDIT FILE
+# A golden scenario is an incident rehearsal. It lets you test the agent safely.
+scenarios:
+  - id: recurring_503_db_latency
+    trigger:
+      application: payments-api
+      environment: production
+      symptom: sustained HTTP 503 errors
+    evidence:
+      error_rate_percent: 12
+      recent_deployment: false
+      traffic_change: flat
+      database_p99_ms: 4200
+      connection_pool: "100/100 in use"
+    expected:
+      diagnosis_contains: "database"
+      recommendation: incident.escalate
+      verified: false
+  - id: 500_after_deployment
+    trigger:
+      application: checkout-api
+      environment: production
+      symptom: HTTP 500 errors after release
+    evidence:
+      error_rate_percent: 30
+      recent_deployment: true
+      traffic_change: flat
+      database_p99_ms: 30
+      connection_pool: healthy
+    expected:
+      diagnosis_contains: "deployment"
+      recommendation: application.rollback_deployment
+      verified: true
