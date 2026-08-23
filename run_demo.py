@@ -3,7 +3,7 @@ from pathlib import Path
 
 import yaml
 
-from engine.graph import run_scenario
+from workflow.graph import run_scenario
 
 
 def main() -> None:
@@ -17,3 +17,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

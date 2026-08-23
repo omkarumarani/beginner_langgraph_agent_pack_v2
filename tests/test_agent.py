@@ -2,7 +2,7 @@ from pathlib import Path
 
 import yaml
 
-from engine.graph import run_scenario
+from workflow.graph import run_scenario
 
 
 def scenarios() -> list[dict]:
@@ -20,3 +20,4 @@ def test_deployment_regression_can_recommend_rollback() -> None:
     assert result["recommendation"] == "application.rollback_deployment"
     assert result["confidence"] >= 0.70
     assert result["verified"] is True
+
