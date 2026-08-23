@@ -199,3 +199,6 @@ layer without changing the safety model.
 3. Additional tests for invalid/unsafe model outputs.
 4. Evaluation set with expected safe behavior under ambiguous evidence.
 5. Runbook for incident responders explaining fallback and escalation behavior.
+
+   <img width="991" height="326" alt="image" src="https://github.com/user-attachments/assets/77045473-8cad-4bb4-a5ab-09594ed7f95c" />
+
